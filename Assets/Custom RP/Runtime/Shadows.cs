@@ -8,6 +8,10 @@ public class Shadows
     const int maxShadowedDirectionalLightCount = 4;
 
     static int dirShadowAtlasId = Shader.PropertyToID("_DirectionalShadowAtlas");
+    static int dirShadowMatricesId = Shader.PropertyToID("_DirectionalShadowMatrices");
+
+    static Matrix4x4[]
+        dirShadowMatrices = new Matrix4x4[maxShadowedDirectionalLightCount];
 
     int ShadowedDirectionalLightCount;
 
@@ -47,7 +51,7 @@ public class Shadows
         buffer.Clear();
     }
     // 每帧执行，用于light配置shadow atlas上预留一片空间来渲染阴影贴图
-    public void ReserveDirectionalShadows(Light light, int visibleLightIndex) 
+    public Vector2 ReserveDirectionalShadows(Light light, int visibleLightIndex) 
     {   
         // 配置光源数不超过最大值
         // 只配置开启阴影且阴影强度大于0的光源
@@ -56,11 +60,13 @@ public class Shadows
             light.shadows != LightShadows.None && light.shadowStrength > 0f &&
             cullingResults.GetShadowCasterBounds(visibleLightIndex, out Bounds b))
         {
-            ShadowedDirectionalLights[ShadowedDirectionalLightCount++] = new ShadowedDirectionalLight
+            ShadowedDirectionalLights[ShadowedDirectionalLightCount] = new ShadowedDirectionalLight
             {
                 visibleLightIndex = visibleLightIndex
             };
+            return new Vector2(light.shadowStrength, ShadowedDirectionalLightCount++);
         }
+        return Vector2.zero;
     }
 
     public void Render()
@@ -80,7 +86,10 @@ public class Shadows
     void RenderDirectionalShadows() 
     {
         int atlasSize = (int)settings.directional.atlasSize;
-        buffer.GetTemporaryRT(dirShadowAtlasId, atlasSize, atlasSize);
+        buffer.GetTemporaryRT(
+        dirShadowAtlasId, atlasSize, atlasSize,
+            32, FilterMode.Bilinear, RenderTextureFormat.Shadowmap
+        );
         //告诉GPU接下来操作的RT是ShadowAtlas
         //RenderBufferLoadAction.DontCare意味着在将其设置为RenderTarget之后，我们不关心它的初始状态，不对其进行任何预处理
         //RenderBufferStoreAction.Store意味着完成这张RT上的所有渲染指令之后（要切换为下一个RenderTarget时），我们会将其存储到显存中为后续采样使用
@@ -98,6 +107,7 @@ public class Shadows
             RenderDirectionalShadows(i, split, tileSize);
         }
 
+        buffer.SetGlobalMatrixArray(dirShadowMatricesId, dirShadowMatrices);
         buffer.EndSample(bufferName);
         ExecuteBuffer();
     }
@@ -115,6 +125,9 @@ public class Shadows
         //splitData 包括投射阴影物体应该如何被裁剪的信息，我们需要把它传递给ShadowSettings
         shadowSettings.splitData = splitData;
         SetTileViewport(index, split, tileSize);
+        // 计算当前阴影的VP矩阵，这样只需要将灯光的阴影投射矩阵与视图矩阵相乘，就可以创建从世界空间到灯光空间的转换矩阵
+        // 然后将其坐标从[-1,1]缩放到[0,1]，然后根据Tile偏移和缩放到对应光源的tile上，就可以进行采样了。
+        dirShadowMatrices[index] = ConvertToAtlasMatrix(projectionMatrix * viewMatrix, SetTileViewport(index, split, tileSize), split);
         // 将当前VP矩阵设置为计算出的VP矩阵，准备渲染阴影贴图。
         buffer.SetViewProjectionMatrices(viewMatrix, projectionMatrix);
         ExecuteBuffer();
@@ -142,12 +155,31 @@ public class Shadows
     // <param name="index">Tile索引</param>
     // <param name="split">Tile一个方向上的总数</param>
     // <param name="tileSize">一个Tile的宽度（高度）</param>
-    void SetTileViewport(int index, int split, float tileSize)
+    Vector2 SetTileViewport(int index, int split, float tileSize)
     {
         Vector2 offset = new Vector2(index % split, index / split);
         buffer.SetViewport(new Rect(offset.x * tileSize, offset.y * tileSize, tileSize, tileSize));
+        return offset;
     }
 
-
-
+    Matrix4x4 ConvertToAtlasMatrix(Matrix4x4 m, Vector2 offset, int split)
+    {
+        if (SystemInfo.usesReversedZBuffer)
+        {
+            m.m20 = -m.m20;
+            m.m21 = -m.m21;
+            m.m22 = -m.m22;
+            m.m23 = -m.m23;
+        }
+        float scale = 1f / split;
+        m.m00 = (0.5f * (m.m00 + m.m30) + offset.x * m.m30) * scale;
+        m.m01 = (0.5f * (m.m01 + m.m31) + offset.x * m.m31) * scale;
+        m.m02 = (0.5f * (m.m02 + m.m32) + offset.x * m.m32) * scale;
+        m.m03 = (0.5f * (m.m03 + m.m33) + offset.x * m.m33) * scale;
+        m.m10 = (0.5f * (m.m10 + m.m30) + offset.y * m.m30) * scale;
+        m.m11 = (0.5f * (m.m11 + m.m31) + offset.y * m.m31) * scale;
+        m.m12 = (0.5f * (m.m12 + m.m32) + offset.y * m.m32) * scale;
+        m.m13 = (0.5f * (m.m13 + m.m33) + offset.y * m.m33) * scale;
+        return m;
+    }
 }

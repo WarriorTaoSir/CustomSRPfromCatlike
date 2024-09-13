@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E2B15ED4-16C0-634D-C6FD-8EF7B704F233}</ProjectGuid>
+    <ProjectGuid>{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -77,6 +77,7 @@
     <None Include="Assets\Custom RP\ShaderLibrary\Surface.hlsl" />
     <None Include="Assets\Custom RP\Shaders\ShadowCasterPass.hlsl" />
     <None Include="Assets\Custom RP\ShaderLibrary\BRDF.hlsl" />
+    <None Include="Assets\Custom RP\ShaderLibrary\Shadows.hlsl" />
     <None Include="Assets\Custom RP\ShaderLibrary\Lighting.hlsl" />
     <None Include="Assets\Custom RP\Shaders\UnlitPass.hlsl" />
     <None Include="Assets\Custom RP\Shaders\LitPass.hlsl" />
