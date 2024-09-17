@@ -106,33 +106,42 @@ public class Shadows
         {
             RenderDirectionalShadows(i, split, tileSize);
         }
-
         buffer.SetGlobalMatrixArray(dirShadowMatricesId, dirShadowMatrices);
         buffer.EndSample(bufferName);
         ExecuteBuffer();
     }
 
-    void RenderDirectionalShadows(int index, int split,  int tileSize)
-    {   
+    void RenderDirectionalShadows(int index, int split, int tileSize)
+    {
+        // Debug.Log("index:" + index + " split:" + split);
         // 获取当前要配置的光源的信息
         ShadowedDirectionalLight light = ShadowedDirectionalLights[index];
         // 根据culling Result和当前光源的索引来构造一个ShadowDrawingSettings
-        var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex);
+        var shadowSettings = new ShadowDrawingSettings(
+            cullingResults, light.visibleLightIndex,
+            BatchCullingProjectionType.Orthographic
+        );
         // 使用Unity提供的接口来为方向光源计算出其渲染阴影贴图用的VP矩阵和splitData
-        cullingResults.ComputeDirectionalShadowMatricesAndCullingPrimitives(light.visibleLightIndex,
-            0, 1, Vector3.zero, tileSize, 0f,
-            out Matrix4x4 viewMatrix, out Matrix4x4 projectionMatrix, out ShadowSplitData splitData);
+        cullingResults.ComputeDirectionalShadowMatricesAndCullingPrimitives(
+            light.visibleLightIndex,0, 1, Vector3.zero, tileSize, 0f,
+            out Matrix4x4 viewMatrix, out Matrix4x4 projectionMatrix, 
+            out ShadowSplitData splitData
+        );
         //splitData 包括投射阴影物体应该如何被裁剪的信息，我们需要把它传递给ShadowSettings
         shadowSettings.splitData = splitData;
-        SetTileViewport(index, split, tileSize);
         // 计算当前阴影的VP矩阵，这样只需要将灯光的阴影投射矩阵与视图矩阵相乘，就可以创建从世界空间到灯光空间的转换矩阵
         // 然后将其坐标从[-1,1]缩放到[0,1]，然后根据Tile偏移和缩放到对应光源的tile上，就可以进行采样了。
-        dirShadowMatrices[index] = ConvertToAtlasMatrix(projectionMatrix * viewMatrix, SetTileViewport(index, split, tileSize), split);
+        Debug.Log((projectionMatrix * viewMatrix).m11);
+        dirShadowMatrices[index] = ConvertToAtlasMatrix(
+            projectionMatrix * viewMatrix,
+            SetTileViewport(index, split, tileSize), split
+        );
         // 将当前VP矩阵设置为计算出的VP矩阵，准备渲染阴影贴图。
         buffer.SetViewProjectionMatrices(viewMatrix, projectionMatrix);
         ExecuteBuffer();
         // 使用context.DrawShadows来渲染阴影贴图，其需要传入一个shadowSettings
         context.DrawShadows(ref shadowSettings);
+        
     }
     // cullingResults.ComputeDirectionalShadowMatricesAndCullingPrimitives方法
     // 作用：计算方向光的视图与投影矩阵以及阴影分割数据
@@ -157,8 +166,11 @@ public class Shadows
     // <param name="tileSize">一个Tile的宽度（高度）</param>
     Vector2 SetTileViewport(int index, int split, float tileSize)
     {
+        Debug.Log("index:" + index + "画了");
         Vector2 offset = new Vector2(index % split, index / split);
-        buffer.SetViewport(new Rect(offset.x * tileSize, offset.y * tileSize, tileSize, tileSize));
+        buffer.SetViewport(new Rect(
+            offset.x * tileSize, offset.y * tileSize, tileSize, tileSize
+        ));
         return offset;
     }
 
@@ -180,6 +192,11 @@ public class Shadows
         m.m11 = (0.5f * (m.m11 + m.m31) + offset.y * m.m31) * scale;
         m.m12 = (0.5f * (m.m12 + m.m32) + offset.y * m.m32) * scale;
         m.m13 = (0.5f * (m.m13 + m.m33) + offset.y * m.m33) * scale;
+        m.m20 = 0.5f * (m.m20 + m.m30);
+        m.m21 = 0.5f * (m.m21 + m.m31);
+        m.m22 = 0.5f * (m.m22 + m.m32);
+        m.m23 = 0.5f * (m.m23 + m.m33);
+
         return m;
     }
 }
