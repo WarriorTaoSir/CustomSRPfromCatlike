@@ -3,32 +3,64 @@
   "WorkspaceRootPath": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\shaders\\litpass.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaders\\litpass.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaders\\litpass.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\shaderlibrary\\shadows.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaderlibrary\\shadows.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\runtime\\lighting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\runtime\\lighting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\shaderlibrary\\lighting.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaderlibrary\\lighting.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaderlibrary\\lighting.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\shaderlibrary\\light.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaderlibrary\\light.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaderlibrary\\light.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\runtime\\shadows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\runtime\\lighting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\runtime\\lighting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\shaderlibrary\\gi.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaderlibrary\\gi.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00C9A215-134B-03D5-6299-49C27AD4E876}|Assembly-CSharp-Editor.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\editor\\customshadergui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00C9A215-134B-03D5-6299-49C27AD4E876}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\custom rp\\editor\\customshadergui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaderlibrary\\common.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaderlibrary\\common.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|c:\\files\\projects\\unityprojects\\customsrpfromcatlike\\assets\\custom rp\\runtime\\shadowsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\runtime\\shadowsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\runtime\\shadows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\runtime\\shadows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaders\\unlit.shader||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaders\\unlit.shader||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaders\\lit.shader||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaders\\lit.shader||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaderlibrary\\shadows.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaderlibrary\\shadows.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaders\\shadowcasterpass.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaders\\shadowcasterpass.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\shaderlibrary\\surface.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\shaderlibrary\\surface.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\assets\\custom rp\\runtime\\camerarenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6814DFFA-8AF5-0AB2-03A7-45D1D5D73E43}|Assembly-CSharp.csproj|solutionrelative:assets\\custom rp\\runtime\\camerarenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +70,64 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GI.hlsl",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\GI.hlsl",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\GI.hlsl",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\GI.hlsl",
+              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\GI.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-19T05:24:14.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Lighting.hlsl",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
+              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-13T12:06:17.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lighting.cs",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Lighting.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\Runtime\\Lighting.cs",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Lighting.cs",
+              "RelativeToolTip": "Assets\\Custom RP\\Runtime\\Lighting.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAIAzwEEAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T03:29:04.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Light.hlsl",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
+              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-13T12:03:42.042Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -48,88 +136,133 @@
               "RelativeDocumentMoniker": "Assets\\Custom RP\\Shaders\\LitPass.hlsl",
               "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Shaders\\LitPass.hlsl",
               "RelativeToolTip": "Assets\\Custom RP\\Shaders\\LitPass.hlsl",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-09-13T12:15:47.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Shadows.hlsl",
-              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
-              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
-              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
-              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-09-13T12:12:02.402Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Lighting.hlsl",
-              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
-              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
-              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
-              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Lighting.hlsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-09-13T12:06:17.767Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Light.hlsl",
-              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
-              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
-              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
-              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Light.hlsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-09-13T12:03:42.042Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Lighting.cs",
-              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Lighting.cs",
-              "RelativeDocumentMoniker": "Assets\\Custom RP\\Runtime\\Lighting.cs",
-              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Lighting.cs",
-              "RelativeToolTip": "Assets\\Custom RP\\Runtime\\Lighting.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAowEkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T11:58:09.979Z",
+              "WhenOpened": "2024-09-14T03:34:14.394Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Shadows.cs",
-              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Shadows.cs",
-              "RelativeDocumentMoniker": "Assets\\Custom RP\\Runtime\\Shadows.cs",
-              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Shadows.cs",
-              "RelativeToolTip": "Assets\\Custom RP\\Runtime\\Shadows.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAD4v0EAAAAOAAAAAAAAAA==",
+              "Title": "CustomShaderGUI.cs",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Editor\\CustomShaderGUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\Editor\\CustomShaderGUI.cs",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Editor\\CustomShaderGUI.cs",
+              "RelativeToolTip": "Assets\\Custom RP\\Editor\\CustomShaderGUI.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAUwCEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T08:46:57.549Z",
+              "WhenOpened": "2024-09-18T12:47:55.595Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Common.hlsl",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Common.hlsl",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Common.hlsl",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Common.hlsl",
+              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Common.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-17T08:02:31.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Shadows.cs",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Shadows.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\Runtime\\Shadows.cs",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\Shadows.cs",
+              "RelativeToolTip": "Assets\\Custom RP\\Runtime\\Shadows.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAjwEsAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T08:46:57.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Shadows.hlsl",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
+              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Shadows.hlsl",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAHYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-13T12:12:02.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Lit.shader",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Shaders\\Lit.shader",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\Shaders\\Lit.shader",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Shaders\\Lit.shader",
+              "RelativeToolTip": "Assets\\Custom RP\\Shaders\\Lit.shader",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-18T08:43:01.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ShadowSettings.cs",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\ShadowSettings.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\Runtime\\ShadowSettings.cs",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\ShadowSettings.cs",
+              "RelativeToolTip": "Assets\\Custom RP\\Runtime\\ShadowSettings.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAABOwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T09:19:39.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Unlit.shader",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Shaders\\Unlit.shader",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\Shaders\\Unlit.shader",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Shaders\\Unlit.shader",
+              "RelativeToolTip": "Assets\\Custom RP\\Shaders\\Unlit.shader",
+              "ViewState": "AgIAABIAAAAAAAAAAAAcwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-18T12:55:32.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "ShadowCasterPass.hlsl",
               "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Shaders\\ShadowCasterPass.hlsl",
               "RelativeDocumentMoniker": "Assets\\Custom RP\\Shaders\\ShadowCasterPass.hlsl",
               "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Shaders\\ShadowCasterPass.hlsl",
               "RelativeToolTip": "Assets\\Custom RP\\Shaders\\ShadowCasterPass.hlsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-09-13T08:20:42.754Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T08:20:42.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Surface.hlsl",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Surface.hlsl",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\ShaderLibrary\\Surface.hlsl",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\ShaderLibrary\\Surface.hlsl",
+              "RelativeToolTip": "Assets\\Custom RP\\ShaderLibrary\\Surface.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-09-17T08:27:58.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CameraRenderer.cs",
+              "DocumentMoniker": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\CameraRenderer.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom RP\\Runtime\\CameraRenderer.cs",
+              "ToolTip": "C:\\Files\\Projects\\UnityProjects\\CustomSRPfromCatlike\\Assets\\Custom RP\\Runtime\\CameraRenderer.cs",
+              "RelativeToolTip": "Assets\\Custom RP\\Runtime\\CameraRenderer.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAACUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T07:17:25.959Z"
             }
           ]
         }

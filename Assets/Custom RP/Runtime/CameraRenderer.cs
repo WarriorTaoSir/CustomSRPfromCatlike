@@ -72,8 +72,10 @@ public partial class CameraRenderer
 		) {
 			// 启用动态批处理
 			enableDynamicBatching = useDynamicBatching,
-			enableInstancing = useGPUInstancing
-		};
+			enableInstancing = useGPUInstancing,
+            perObjectData = PerObjectData.Lightmaps
+
+        };
 		// 增加对Lit.shader的绘制支持，index表示本次DrawRenderer中该pass的绘制优先级。
 		drawingSettings.SetShaderPassName(1, litShaderTagId);
 		// 决定过滤哪些Visible Objects的设置，包括支持的RenderQueue等
