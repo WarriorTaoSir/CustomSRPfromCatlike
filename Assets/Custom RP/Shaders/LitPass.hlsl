@@ -63,6 +63,7 @@ float4 LitPassFragment (Varyings input) : SV_TARGET {
 
 	GI gi = GetGI(GI_FRAGMENT_DATA(input), surface); // 根据UV从光照贴图中获取GI值
 	float3 color = GetLighting(surface, brdf, gi);
+	color += GetEmission(input.baseUV);
 	return float4(color, surface.alpha);
 }
 

@@ -12,26 +12,31 @@ Material:
   m_Parent: {fileID: 2100000, guid: 68e41aed07ccfa2419152b84bbb9967d, type: 2}
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
-  - _PREMULTIPLY_ALPHA
+  - _CLIPPING
   - _RECEIVE_SHADOWS
   - _SHADOWS_CLIP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2450
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 73596191c638f174cb37866fdca69bce, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Clipping: 0
+    - _Clipping: 1
     - _Cutoff: 0.402
-    - _DstBlend: 10
-    - _PremulAlpha: 1
-    - _ZWrite: 0
-    m_Colors: []
+    - _DstBlend: 0
+    - _PremulAlpha: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.8490566, g: 0.3163936, b: 0.3163936, a: 0.57254905}
   m_BuildTextureStacks: []

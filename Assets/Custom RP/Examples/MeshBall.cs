@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MeshBall : MonoBehaviour
 {
@@ -16,13 +17,14 @@ public class MeshBall : MonoBehaviour
 	Vector4[] baseColors = new Vector4[1023];
 
 	MaterialPropertyBlock block;
-	[SerializeField]
-	Mesh mesh = default;
 
-	[SerializeField]
-	Material material = default;
+    [SerializeField] Mesh mesh = default;
 
-	void Awake()
+    [SerializeField] Material material = default;
+
+    [SerializeField] LightProbeProxyVolume lightProbeVolume = null;
+
+    void Awake()
 	{
 		for (int i = 0; i < matrices.Length; i++)
 		{
@@ -51,8 +53,27 @@ public class MeshBall : MonoBehaviour
 			block.SetVectorArray(baseColorId, baseColors);
 			block.SetFloatArray(metallicId, metallic);
 			block.SetFloatArray(smoothnessId, smoothness);
-		}
-		Graphics.DrawMeshInstanced(mesh, 0, material, matrices, 1023, block);
+
+            var positions = new Vector3[1023];
+            for (int i = 0; i < matrices.Length; i++)
+            {
+                positions[i] = matrices[i].GetColumn(3);
+            }
+			if (!lightProbeVolume)
+			{
+				var lightProbes = new SphericalHarmonicsL2[1023];
+				LightProbes.CalculateInterpolatedLightAndOcclusionProbes(
+					positions, lightProbes, null
+				);
+                block.CopySHCoefficientArraysFrom(lightProbes);
+            }
+            
+        }
+		Graphics.DrawMeshInstanced(mesh, 0, material, matrices, 1023, block,
+			ShadowCastingMode.On, true, 0, null, 
+			lightProbeVolume ? 
+				LightProbeUsage.UseProxyVolume : LightProbeUsage.CustomProvided,
+            lightProbeVolume);
 	}
 
 }
