@@ -11,6 +11,10 @@ Shader "Custom RP/Unlit" {
 	}
 	
 	SubShader {
+		HLSLINCLUDE
+		#include "../ShaderLibrary/Common.hlsl"
+		#include "UnlitInput.hlsl"
+		ENDHLSL
 		
 Pass {
 	Blend [_SrcBlend] [_DstBlend]
@@ -45,6 +49,21 @@ Pass{
 	#pragma fragment ShadowCasterPassFragment
 	//阴影相关方法写在ShadowCasterPass.hlsl
 	#include "ShadowCasterPass.hlsl"
+	ENDHLSL
+}
+
+Pass {
+	Tags {
+		"LightMode" = "Meta"
+	}
+
+	Cull Off
+
+	HLSLPROGRAM
+	#pragma target 3.5
+	#pragma vertex MetaPassVertex
+	#pragma fragment MetaPassFragment
+	#include "MetaPass.hlsl"
 	ENDHLSL
 }
 	}

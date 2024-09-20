@@ -16,13 +16,18 @@ Shader "Custom RP/Lit" {
 	}
 	
 	SubShader {
+		HLSLINCLUDE
+		#include "../ShaderLibrary/Common.hlsl"
+		#include "LitInput.hlsl"
+		ENDHLSL
 		
 Pass{
 	Tags{
-		"LightMode" = "CustomLit"
+		"LightMode" = "CustomLit" 
 	}
 	Blend [_SrcBlend] [_DstBlend]
 	ZWrite [_ZWrite]
+
 	HLSLPROGRAM
 	#pragma target 3.5
 	#pragma shader_feature _CLIPPING
@@ -60,6 +65,22 @@ Pass{
 	#include "ShadowCasterPass.hlsl"
 	ENDHLSL
 }
+
+Pass {
+	Tags {
+		"LightMode" = "Meta"
 	}
+
+	Cull Off
+
+	HLSLPROGRAM
+	#pragma target 3.5
+	#pragma vertex MetaPassVertex
+	#pragma fragment MetaPassFragment
+	#include "MetaPass.hlsl"
+	ENDHLSL
+}
+	}
+
 	CustomEditor "CustomShaderGUI"
 }

@@ -73,7 +73,7 @@ public partial class CameraRenderer
 			// 启用动态批处理
 			enableDynamicBatching = useDynamicBatching,
 			enableInstancing = useGPUInstancing,
-            perObjectData = PerObjectData.Lightmaps
+            perObjectData = PerObjectData.Lightmaps | PerObjectData.LightProbe | PerObjectData.LightProbeProxyVolume
 
         };
 		// 增加对Lit.shader的绘制支持，index表示本次DrawRenderer中该pass的绘制优先级。
