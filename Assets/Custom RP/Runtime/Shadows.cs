@@ -19,6 +19,12 @@ public class Shadows
         "_CASCADE_BLEND_DITHER"
     };
 
+    // 阴影遮罩关键字
+    static string[] shadowMaskKeywords =
+    {
+        "_SHADOW_MASK_DISTANCE"
+    };
+
     static int dirShadowAtlasId = Shader.PropertyToID("_DirectionalShadowAtlas");
     static int dirShadowMatricesId = Shader.PropertyToID("_DirectionalShadowMatrices");
     static int cascadeCountId = Shader.PropertyToID("_CascadeCount");
@@ -33,6 +39,8 @@ public class Shadows
     static Vector4[] cascadeCullingSpheres = new Vector4[maxCascades];
     static Vector4[] cascadeData = new Vector4[maxCascades];
     int ShadowedDirectionalLightCount;
+    // 是否使用阴影遮罩
+    bool useShadowMask;
 
     CommandBuffer buffer = new CommandBuffer
     {
@@ -61,11 +69,12 @@ public class Shadows
     public void Setup(
         ScriptableRenderContext context, CullingResults cullingResults,
         ShadowSettings settings)
-    {
+    {   
         this.context = context;
         this.cullingResults = cullingResults;
         this.settings = settings;
         ShadowedDirectionalLightCount = 0;
+        useShadowMask = false;
     }
 
     void ExecuteBuffer()
@@ -83,6 +92,15 @@ public class Shadows
             light.shadows != LightShadows.None && light.shadowStrength > 0f &&
             cullingResults.GetShadowCasterBounds(visibleLightIndex, out Bounds b))
         {
+            LightBakingOutput lightBaking = light.bakingOutput;
+            if (
+                lightBaking.lightmapBakeType == LightmapBakeType.Mixed &&
+                lightBaking.mixedLightingMode == MixedLightingMode.Shadowmask
+            )
+            {
+                useShadowMask = true;
+            }
+
             ShadowedDirectionalLights[ShadowedDirectionalLightCount] = new ShadowedDirectionalLight
             {
                 visibleLightIndex = visibleLightIndex,
@@ -106,6 +124,12 @@ public class Shadows
                 dirShadowAtlasId, 1, 1,
                 32, FilterMode.Bilinear, RenderTextureFormat.Shadowmap);
         }
+
+        // 阴影遮罩并不是实时的，所以即使最终没有渲染任何实时阴影，都要这样做。
+        buffer.BeginSample(bufferName);
+        SetKeywords(shadowMaskKeywords, useShadowMask ? 0 : -1);
+        buffer.EndSample(bufferName);
+        ExecuteBuffer();
     }
     void RenderDirectionalShadows() 
     {
