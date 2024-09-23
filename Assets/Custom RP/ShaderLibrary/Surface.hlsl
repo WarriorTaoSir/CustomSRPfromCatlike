@@ -10,6 +10,7 @@ struct Surface {
 	float alpha;			// 不透明度值
     float metallic;			// 金属度
     float smoothness;		// 粗糙度
+	float fresnelStrength;  // 菲涅尔强度
 	float dither;           // 阴影抖动值
 };
 

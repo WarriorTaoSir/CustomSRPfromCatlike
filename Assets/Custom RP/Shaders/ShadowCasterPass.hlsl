@@ -44,6 +44,8 @@ void ShadowCasterPassFragment(Varyings input)
 {
     //从input中提取实例的ID并将其存储在其他实例化宏所依赖的全局静态变量中
     UNITY_SETUP_INSTANCE_ID(input);
+    // 进行LOD裁剪
+    ClipLOD(input.positionCS.xy, unity_LODFade.x);
     //获取采样纹理颜色
     float4 base = GetBase(input.baseUV);
     //只有在_CLIPPING关键字启用时编译该段代码

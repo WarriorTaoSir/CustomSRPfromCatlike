@@ -12,6 +12,7 @@ Shader "Custom RP/Lit" {
 		[Enum(Off, 0, On, 1)] _ZWrite ("Z Write", Float) = 1
 		_Metallic ("Metallic", Range(0, 1)) = 0
 		_Smoothness ("Smoothness", Range(0, 1)) = 0.5
+		_Fresnel ("Fresnel", Range(0, 1)) = 1
 
 		[NoScaleOffset] _EmissionMap("Emission", 2D) = "white" {}
 		[HDR] _EmissionColor("Emission", Color) = (0.0, 0.0, 0.0, 0.0)
@@ -44,6 +45,8 @@ Pass{
 	#pragma multi_compile _ _CASCADE_BLEND_SOFT _CASCADE_BLEND_DITHER
 	#pragma multi_compile _ _SHADOW_MASK_ALWAYS _SHADOW_MASK_DISTANCE
 	#pragma multi_compile _ LIGHTMAP_ON
+	// LOD
+	#pragma multi_compile _ LOD_FADE_CROSSFADE
 	#pragma multi_compile_instancing
 	#pragma vertex LitPassVertex
 	#pragma fragment LitPassFragment
@@ -65,6 +68,8 @@ Pass{
 	#pragma target 3.5
 	//支持Alpha Test的裁剪
 	#pragma shader_feature _ _SHADOWS_CLIP _SHADOWS_DITHER
+	// LOD
+	#pragma multi_compile _ LOD_FADE_CROSSFADE
 	//定义diffuse项是否使用Premultiplied alpha的关键字
 	#pragma multi_compile_instancing
 	#pragma vertex ShadowCasterPassVertex

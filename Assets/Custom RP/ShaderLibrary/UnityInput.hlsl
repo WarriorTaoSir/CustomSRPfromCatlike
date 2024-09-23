@@ -9,6 +9,8 @@ CBUFFER_START(UnityPerDraw)
 
 	float4 unity_ProbesOcclusion;// ÕÚµ²Ì½ÕëÊı¾İ
 
+	float4 unity_SpecCube0_HDR; // ·´ÉäÌ½Õë
+
     float4 unity_LightmapST;
 	float4 unity_DynamicLightmapST;
 
