@@ -24,10 +24,11 @@ int GetDirectionalLightCount() {
 DirectionalShadowData GetDirectionalShadowData (int lightIndex, ShadowData shadowData) {
 	DirectionalShadowData data;
 	// 阴影强度
-	data.strength = _DirectionalLightShadowData[lightIndex].x * shadowData.strength;
+	data.strength = _DirectionalLightShadowData[lightIndex].x;
 	// Tile索引
 	data.tileIndex = _DirectionalLightShadowData[lightIndex].y + shadowData.cascadeIndex;
 	data.normalBias = _DirectionalLightShadowData[lightIndex].z;
+	data.shadowMaskChannel = _DirectionalLightShadowData[lightIndex].w; // 第四个分量时该光源对应的ShadowMask通道
 	return data;
 }
 

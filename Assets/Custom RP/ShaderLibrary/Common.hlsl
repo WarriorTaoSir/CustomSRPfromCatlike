@@ -14,8 +14,8 @@
 #define UNITY_PREV_MATRIX_I_M unity_prev_MatrixIM
 #define UNITY_MATRIX_P glstate_matrix_projection
 
-// 如果定义了 Shadow_MASK_DISTANCE 关键字，也把SHADOWS_SHADOWMASK定义了
-#if defined(_SHADOW_MASK_DISTANCE)
+// 如果定义了_DISTANCE或者_ALWAYS 关键字，也把SHADOWS_SHADOWMASK定义了
+#if defined(_SHADOW_MASK_ALWAYS) || defined(_SHADOW_MASK_DISTANCE)
 	#define SHADOWS_SHADOWMASK
 #endif
 
