@@ -48,7 +48,7 @@ float3 IndirectBRDF (Surface surface, BRDF brdf, float3 diffuse, float3 specular
 	// 反射光与粗糙度的平方成反比
 	float3 reflection = specular * lerp(brdf.specular, brdf.fresnel, fresnelStrength);
 	reflection /= brdf.roughness * brdf.roughness + 1.0; 
-    return diffuse * brdf.diffuse + reflection;
+    return (diffuse * brdf.diffuse + reflection) * surface.occlusion;
 }
 
 float3 DirectBRDF (Surface surface, BRDF brdf, Light light) {

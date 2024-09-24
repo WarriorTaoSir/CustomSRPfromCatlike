@@ -46,12 +46,14 @@ void ShadowCasterPassFragment(Varyings input)
     UNITY_SETUP_INSTANCE_ID(input);
     // 进行LOD裁剪
     ClipLOD(input.positionCS.xy, unity_LODFade.x);
+    
+    InputConfig config = GetInputConfig(input.baseUV);
     //获取采样纹理颜色
-    float4 base = GetBase(input.baseUV);
+    float4 base = GetBase(config);
     //只有在_CLIPPING关键字启用时编译该段代码
     #if defined(_SHADOWS_CLIP)
         //clip函数的传入参数如果<=0则会丢弃该片元
-        clip(base.a - GetCutoff(input.baseUV));
+        clip(base.a - GetCutoff(config));
     #elif defined(_SHADOWS_DITHER)
 		float dither = InterleavedGradientNoise(input.positionCS.xy, 0);
 		clip(base.a - dither);
