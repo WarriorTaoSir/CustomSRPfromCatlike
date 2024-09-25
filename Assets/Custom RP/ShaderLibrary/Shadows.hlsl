@@ -168,7 +168,7 @@ float GetBakedShadow (ShadowMask mask, int channel, float strength) {
 }
 
 // 将阴影强度应用上，除非有距离阴影遮罩，如果有，将实时阴影换成烘焙阴影。
-float MixBakedAndRealtimeShadows (
+float MixBakedAndRealtimeShadows(
 	ShadowData global, float shadow, int shadowMaskChannel, float strength
 ) {
 	float baked = GetBakedShadow(global.shadowMask, shadowMaskChannel);

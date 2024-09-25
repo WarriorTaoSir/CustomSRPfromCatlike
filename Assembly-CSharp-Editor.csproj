@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Custom RP\Editor\CustomShaderGUI.cs" />
+    <Compile Include="Assets\Custom RP\Editor\CustomLightEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
