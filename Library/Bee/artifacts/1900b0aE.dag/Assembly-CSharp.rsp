@@ -357,6 +357,7 @@
 "Assets/Custom RP/Runtime/CameraRenderer.cs"
 "Assets/Custom RP/Runtime/CameraRenderer.Editor.cs"
 "Assets/Custom RP/Runtime/CustomRenderPipeline.cs"
+"Assets/Custom RP/Runtime/CustomRenderPipeline.Editor.cs"
 "Assets/Custom RP/Runtime/CustomRenderPipelineAsset.cs"
 "Assets/Custom RP/Runtime/Lighting.cs"
 "Assets/Custom RP/Runtime/Shadows.cs"

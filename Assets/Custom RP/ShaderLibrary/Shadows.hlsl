@@ -39,6 +39,11 @@ struct DirectionalShadowData {
 	int shadowMaskChannel; 
 };
 
+struct OtherShadowData {
+	float strength;
+	int shadowMaskChannel;
+};
+
 struct ShadowMask{
 	bool always;
     bool distance;
@@ -109,7 +114,6 @@ float SampleDirectionalShadowAtlas (float3 positionSTS) {
 		_DirectionalShadowAtlas, SHADOW_SAMPLER, positionSTS
 	);
 }
-
 
 float FilterDirectionalShadow (float3 positionSTS) {
 	#if defined(DIRECTIONAL_FILTER_SETUP) // 软阴影
@@ -204,6 +208,24 @@ float GetDirectionalShadowAttenuation(DirectionalShadowData directional, ShadowD
 		shadow = GetCascadedShadow(directional, global, surfaceWS); 
 		// 获取混合阴影，是烘焙阴影与实时阴影之间的插值
 		shadow = MixBakedAndRealtimeShadows(global, shadow, directional.shadowMaskChannel, directional.strength);
+	}
+	return shadow;
+}
+
+// 计算阴影衰减值，1是没阴影，0是完全在阴影中
+float GetOtherShadowAttenuation(OtherShadowData other, ShadowData global, Surface surfaceWS) {
+	#if !defined(_RECEIVE_SHADOWS)
+		return 1.0;
+	#endif
+	
+	float shadow;
+	if (other.strength > 0.0) { // 阴影强度不为0，则获取阴影遮罩值
+		shadow = GetBakedShadow(
+			global.shadowMask, other.shadowMaskChannel, other.strength
+		);
+	}
+	else {
+		shadow = 1.0;  // 阴影强度为0，则返回1
 	}
 	return shadow;
 }

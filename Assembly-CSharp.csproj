@@ -64,6 +64,7 @@
     <Compile Include="Assets\Custom RP\Runtime\Shadows.cs" />
     <Compile Include="Assets\Custom RP\Examples\MeshBall.cs" />
     <Compile Include="Assets\Custom RP\Examples\PerObjectMaterialProperties.cs" />
+    <Compile Include="Assets\Custom RP\Runtime\CustomRenderPipeline.Editor.cs" />
     <Compile Include="Assets\Custom RP\Runtime\Lighting.cs" />
     <Compile Include="Assets\Custom RP\Runtime\ShadowSettings.cs" />
     <Compile Include="Assets\Custom RP\Runtime\CustomRenderPipelineAsset.cs" />

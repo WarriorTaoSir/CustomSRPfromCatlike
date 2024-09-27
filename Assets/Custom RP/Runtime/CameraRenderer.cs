@@ -17,7 +17,7 @@ public partial class CameraRenderer
 	Lighting lighting = new Lighting();
 
 	// 摄像机渲染器的渲染函数，在当前渲染上下文的基础上渲染当前摄像机
-	public void Render(ScriptableRenderContext context, Camera camera, bool useDynamicBatching, bool useGPUInstancing, ShadowSettings shadowSettings)
+	public void Render(ScriptableRenderContext context, Camera camera, bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject, ShadowSettings shadowSettings)
 	{
 		this.context = context;
 		this.camera = camera;
@@ -33,12 +33,12 @@ public partial class CameraRenderer
 		buffer.BeginSample(SampleName);
 		ExecuteBuffer();
         // 1.将光源信息传递给GPU，在其中也会完成阴影贴图的渲染
-        lighting.Setup(context, cullingResults, shadowSettings);
+        lighting.Setup(context, cullingResults, shadowSettings, useLightsPerObject);
         buffer.EndSample(SampleName);
         // 2.设置当前摄像机Render Target 准备渲染摄像机画面
         Setup();
         // 绘制可见的几何物体，包括天空盒
-        DrawVisibleGeometry(useDynamicBatching, useGPUInstancing);
+        DrawVisibleGeometry(useDynamicBatching, useGPUInstancing, useLightsPerObject);
 		DrawUnsupportedShaders();
 		DrawGizmos();
 		lighting.Cleanup();
@@ -59,11 +59,16 @@ public partial class CameraRenderer
 		ExecuteBuffer();
 	}
 
-	void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing)
+	void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject)
 	{	
-		// 渲染不透明物体
-		// 决定物体绘制顺序是正交排序还是基于深度排序的配置
-		var sortingSettings = new SortingSettings(camera){
+		// 
+        PerObjectData lightsPerObjectFlags = useLightsPerObject ?
+			PerObjectData.LightData | PerObjectData.LightIndices :
+			PerObjectData.None;
+
+        // 渲染不透明物体
+        // 决定物体绘制顺序是正交排序还是基于深度排序的配置
+        var sortingSettings = new SortingSettings(camera){
 			criteria = SortingCriteria.CommonOpaque
         };
 		// 决定摄像机支持的Shader Pass和绘制顺序的配置
@@ -73,7 +78,7 @@ public partial class CameraRenderer
 			// 启用动态批处理
 			enableDynamicBatching = useDynamicBatching,
 			enableInstancing = useGPUInstancing,
-            perObjectData = PerObjectData.ReflectionProbes | PerObjectData.Lightmaps | PerObjectData.LightProbe | PerObjectData.ShadowMask | PerObjectData.OcclusionProbe | PerObjectData.LightProbeProxyVolume | PerObjectData.OcclusionProbeProxyVolume
+            perObjectData = PerObjectData.ReflectionProbes | PerObjectData.Lightmaps | PerObjectData.LightProbe | PerObjectData.ShadowMask | PerObjectData.OcclusionProbe | PerObjectData.LightProbeProxyVolume | PerObjectData.OcclusionProbeProxyVolume | lightsPerObjectFlags
         };
 		// 增加对Lit.shader的绘制支持，index表示本次DrawRenderer中该pass的绘制优先级。
 		drawingSettings.SetShaderPassName(1, litShaderTagId);
