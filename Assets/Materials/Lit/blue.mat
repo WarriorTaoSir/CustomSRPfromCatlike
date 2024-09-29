@@ -93,7 +93,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _MaskMapToggle: 0
-    - _Metallic: 0.86
+    - _Metallic: 0.83
     - _Mode: 0
     - _NormalMapToggle: 0
     - _NormalScale: 1
@@ -103,7 +103,7 @@ Material:
     - _PremulAlpha: 0
     - _ReceiveShadows: 1
     - _Shadows: 0
-    - _Smoothness: 0.75
+    - _Smoothness: 0.86
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

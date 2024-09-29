@@ -7,6 +7,7 @@ public class Lighting
 
 	const string bufferName = "Lighting";
 	const int maxDirLightCount = 4, maxOtherLightCount = 64;
+    static string lightsPerObjectKeyword = "_LIGHTS_PER_OBJECT";
 
     // 方向光源shader属性ID
     static int dirLightCountId = Shader.PropertyToID("_DirectionalLightCount");
@@ -35,7 +36,7 @@ public class Lighting
 	static Vector4[] otherLightSpotAngles = new Vector4[maxOtherLightCount];
 	static Vector4[] otherLightShadowData = new Vector4[maxOtherLightCount];
 
-    static string lightsPerObjectKeyword = "_LIGHTS_PER_OBJECT";
+
     CullingResults cullingResults;
 	
 	CommandBuffer buffer = new CommandBuffer
@@ -75,21 +76,21 @@ public class Lighting
                 case LightType.Directional: // 如果是方向光，那就设置方向光
                     if (dirLightCount < maxDirLightCount)
                     {
-                        SetupDirectionalLight(dirLightCount++, ref visibleLight);
+                        SetupDirectionalLight(dirLightCount++, i, ref visibleLight);
                     }
                     break;
                 case LightType.Point: // 如果是点光源，那就设置点光源
                     if (otherLightCount < maxOtherLightCount)
                     {
                         newIndex = otherLightCount;
-                        SetupPointLight(otherLightCount++, ref visibleLight);
+                        SetupPointLight(otherLightCount++, i, ref visibleLight);
                     }
                     break;
 				case LightType.Spot:
 					if(otherLightCount < maxOtherLightCount)
 					{
                         newIndex = otherLightCount;
-                        SetupSpotLight(otherLightCount++, ref visibleLight);
+                        SetupSpotLight(otherLightCount++, i, ref visibleLight);
 					}
 					break; 
             }
@@ -99,20 +100,22 @@ public class Lighting
 
         // 剩下的光源的下标全部清理掉
         // 这样一来，只有非方向光的下标对应的是otherLightCount，其他的都是-1
-        if (useLightsPerObject)
-        {
-            for (; i < indexMap.Length; i++)
-                indexMap[i] = -1;
 
-            cullingResults.SetLightIndexMap(indexMap);
-            indexMap.Dispose();
-            Shader.EnableKeyword(lightsPerObjectKeyword);
-        }else{
-            Shader.DisableKeyword(lightsPerObjectKeyword);
-        }
+
+		if (useLightsPerObject) {
+			for (; i < indexMap.Length; i++) {
+				indexMap[i] = -1;
+			}
+			cullingResults.SetLightIndexMap(indexMap);
+			indexMap.Dispose();
+			Shader.EnableKeyword(lightsPerObjectKeyword);
+		}
+		else {
+			Shader.DisableKeyword(lightsPerObjectKeyword);
+		}
 
         // 将赋好值的变量传递给shader property
-        buffer.SetGlobalInt(dirLightCountId, visibleLights.Length);
+        buffer.SetGlobalInt(dirLightCountId, dirLightCount);
 		if(dirLightCount > 0)
 		{
             buffer.SetGlobalVectorArray(dirLightColorsId, dirLightColors);
@@ -133,14 +136,14 @@ public class Lighting
     }
 
 	// 创建方向光
-	void SetupDirectionalLight(int index, ref VisibleLight visibleLight) {
+	void SetupDirectionalLight(int index, int visibleIndex, ref VisibleLight visibleLight) {
 		dirLightColors[index] = visibleLight.finalColor;
 		dirLightDirections[index] = -visibleLight.localToWorldMatrix.GetColumn(2);
-		dirLightShadowData[index] = shadows.ReserveDirectionalShadows(visibleLight.light, index);
+		dirLightShadowData[index] = shadows.ReserveDirectionalShadows(visibleLight.light, visibleIndex);
 	}
 
 	// 创建点光源
-	void SetupPointLight(int index, ref VisibleLight visibleLight)
+	void SetupPointLight(int index, int visibleIndex, ref VisibleLight visibleLight)
 	{
 		otherLightColors[index] = visibleLight.finalColor;
 		Vector4 position = visibleLight.localToWorldMatrix.GetColumn(3);
@@ -149,11 +152,11 @@ public class Lighting
         otherLightSpotAngles[index] = new Vector4(0f, 1f);
 		// 配置shadow mask
         Light light = visibleLight.light;
-        otherLightShadowData[index] = shadows.ReserveOtherShadows(light, index);
+        otherLightShadowData[index] = shadows.ReserveOtherShadows(light, visibleIndex);
     }
 
 	// 创建聚光灯
-	void SetupSpotLight(int index, ref VisibleLight visibleLight)
+	void SetupSpotLight(int index, int visibleIndex, ref VisibleLight visibleLight)
 	{
         otherLightColors[index] = visibleLight.finalColor;
         Vector4 position = visibleLight.localToWorldMatrix.GetColumn(3);
@@ -167,7 +170,7 @@ public class Lighting
         float angleRangeInv = 1f / Mathf.Max(innerCos - outerCos, 0.001f);
         otherLightSpotAngles[index] = new Vector4(angleRangeInv, -outerCos * angleRangeInv);
         // 配置shadow mask
-        otherLightShadowData[index] = shadows.ReserveOtherShadows(light, index);
+        otherLightShadowData[index] = shadows.ReserveOtherShadows(light, visibleIndex);
     }
 
 
