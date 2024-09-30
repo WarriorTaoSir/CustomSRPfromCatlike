@@ -360,6 +360,9 @@
 "Assets/Custom RP/Runtime/CustomRenderPipeline.Editor.cs"
 "Assets/Custom RP/Runtime/CustomRenderPipelineAsset.cs"
 "Assets/Custom RP/Runtime/Lighting.cs"
+"Assets/Custom RP/Runtime/PostFXSettings.cs"
+"Assets/Custom RP/Runtime/PostFXStack.cs"
+"Assets/Custom RP/Runtime/PostFXStack.Editor.cs"
 "Assets/Custom RP/Runtime/Shadows.cs"
 "Assets/Custom RP/Runtime/ShadowSettings.cs"
 -langversion:9.0

@@ -16,8 +16,13 @@ public partial class CameraRenderer
 	Camera camera;
 	Lighting lighting = new Lighting();
 
-	// 摄像机渲染器的渲染函数，在当前渲染上下文的基础上渲染当前摄像机
-	public void Render(ScriptableRenderContext context, Camera camera, bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject, ShadowSettings shadowSettings)
+	// 特效栈
+	PostFXStack postFXStack = new PostFXStack();
+
+    static int frameBufferId = Shader.PropertyToID("_CameraFrameBuffer");
+
+    // 摄像机渲染器的渲染函数，在当前渲染上下文的基础上渲染当前摄像机
+    public void Render(ScriptableRenderContext context, Camera camera, bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject, ShadowSettings shadowSettings, PostFXSettings postFXSettings)
 	{
 		this.context = context;
 		this.camera = camera;
@@ -32,24 +37,52 @@ public partial class CameraRenderer
 		// 在FrameDebugger 中 让Shadows标签被MainCamera标签囊括
 		buffer.BeginSample(SampleName);
 		ExecuteBuffer();
-        // 1.将光源信息传递给GPU，在其中也会完成阴影贴图的渲染
+        // 将光源信息传递给GPU，在其中也会完成阴影贴图的渲染
         lighting.Setup(context, cullingResults, shadowSettings, useLightsPerObject);
+        // 设置好特效栈
+		postFXStack.Setup(context, camera, postFXSettings);
         buffer.EndSample(SampleName);
-        // 2.设置当前摄像机Render Target 准备渲染摄像机画面
+        // 设置当前摄像机Render Target 准备渲染摄像机画面
         Setup();
         // 绘制可见的几何物体，包括天空盒
         DrawVisibleGeometry(useDynamicBatching, useGPUInstancing, useLightsPerObject);
 		DrawUnsupportedShaders();
-		DrawGizmos();
-		lighting.Cleanup();
-		Submit();
+
+		// 后处理前画Gizmos
+		DrawGizmosBeforeFX();
+		// 后处理
+        if (postFXStack.IsActive)
+            postFXStack.Render(frameBufferId);
+		// 后处理后画Gizmos
+		DrawGizmosAfterFX();
+
+        Cleanup();
+        Submit();
 	}
 
 	void Setup()
 	{
 		context.SetupCameraProperties(camera);
 		CameraClearFlags flags = camera.clearFlags;
-		buffer.ClearRenderTarget(
+
+		// 如果启用了后处理特效
+        if (postFXStack.IsActive)
+        {
+            if (flags > CameraClearFlags.Color)
+            {
+                flags = CameraClearFlags.Color;
+            }
+            buffer.GetTemporaryRT(
+                frameBufferId, camera.pixelWidth, camera.pixelHeight,
+                32, FilterMode.Bilinear, RenderTextureFormat.Default
+            );
+            buffer.SetRenderTarget(
+                frameBufferId,
+                RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store
+            );
+        }
+
+        buffer.ClearRenderTarget(
 			flags <= CameraClearFlags.Depth,
 			flags <= CameraClearFlags.Color,
 			flags == CameraClearFlags.Color ?
@@ -119,7 +152,16 @@ public partial class CameraRenderer
 		buffer.Clear();
 	}
 
-	bool Cull(float maxShadowDistance)
+    void Cleanup()
+    {
+        lighting.Cleanup();
+        if (postFXStack.IsActive)
+        {
+            buffer.ReleaseTemporaryRT(frameBufferId);
+        }
+    }
+
+    bool Cull(float maxShadowDistance)
 	{	
 		// 获取摄像机用于剔除的参数
 		if (camera.TryGetCullingParameters(out ScriptableCullingParameters p))

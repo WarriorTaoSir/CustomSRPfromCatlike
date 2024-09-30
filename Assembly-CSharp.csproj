@@ -63,11 +63,14 @@
     <Compile Include="Assets\Custom RP\Runtime\CustomRenderPipeline.cs" />
     <Compile Include="Assets\Custom RP\Runtime\Shadows.cs" />
     <Compile Include="Assets\Custom RP\Examples\MeshBall.cs" />
+    <Compile Include="Assets\Custom RP\Runtime\PostFXStack.cs" />
     <Compile Include="Assets\Custom RP\Examples\PerObjectMaterialProperties.cs" />
     <Compile Include="Assets\Custom RP\Runtime\CustomRenderPipeline.Editor.cs" />
+    <Compile Include="Assets\Custom RP\Runtime\PostFXStack.Editor.cs" />
     <Compile Include="Assets\Custom RP\Runtime\Lighting.cs" />
     <Compile Include="Assets\Custom RP\Runtime\ShadowSettings.cs" />
     <Compile Include="Assets\Custom RP\Runtime\CustomRenderPipelineAsset.cs" />
+    <Compile Include="Assets\Custom RP\Runtime\PostFXSettings.cs" />
     <Compile Include="Assets\Custom RP\Runtime\CameraRenderer.cs" />
     <Compile Include="Assets\Custom RP\Runtime\CameraRenderer.Editor.cs" />
   </ItemGroup>
@@ -81,6 +84,7 @@
     <None Include="Assets\Custom RP\ShaderLibrary\Shadows.hlsl" />
     <None Include="Assets\Custom RP\ShaderLibrary\Lighting.hlsl" />
     <None Include="Assets\Custom RP\Shaders\MetaPass.hlsl" />
+    <None Include="Assets\Custom RP\Shaders\PostFXStack.shader" />
     <None Include="Assets\Custom RP\Shaders\UnlitPass.hlsl" />
     <None Include="Assets\Custom RP\Shaders\UnlitInput.hlsl" />
     <None Include="Assets\Custom RP\Shaders\LitInput.hlsl" />
@@ -88,6 +92,7 @@
     <None Include="Assets\Custom RP\Shaders\LitPass.hlsl" />
     <None Include="Assets\Custom RP\Shaders\Lit.shader" />
     <None Include="Assets\Custom RP\ShaderLibrary\Common.hlsl" />
+    <None Include="Assets\Custom RP\Shaders\PostFXStackPasses.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
